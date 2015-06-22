@@ -57,7 +57,7 @@ namespace Nil {
     for ( auto record : mRecords )
       if ( !_wcsicmp( record->getPath().c_str(), devicePath.c_str() ) )
         return;
-    
+
     SafeHandle deviceHandle( CreateFileW( devicePath.c_str(), 0,
       FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, 0, NULL ) );
 

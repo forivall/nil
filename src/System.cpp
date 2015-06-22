@@ -21,7 +21,7 @@ namespace Nil {
   void System::Internals::disableHotKeyHarassment()
   {
     // Don't touch stickykeys/togglekeys/filterkeys if they're being used,
-    // but if they aren't, make sure Windows doesn't harass the user about 
+    // but if they aren't, make sure Windows doesn't harass the user about
     // maybe enabling them.
 
     auto stickyKeys = storedStickyKeys;
@@ -101,7 +101,7 @@ namespace Nil {
 
     // Register ourselves as a raw event listener
     mMonitor->registerRawListener( this );
-    
+
     // Fetch initial devices
     initializeDevices();
     refreshDevices();
@@ -452,7 +452,7 @@ namespace Nil {
     SAFE_DELETE( mLogitechLEDs );
     SAFE_DELETE( mLogitechGKeys );
     SAFE_DELETE( mXInput );
-    
+
     // Restore accessiblity features
     mInternals.restore();
   }

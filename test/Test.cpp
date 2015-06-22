@@ -66,7 +66,7 @@ public:
 
 DummyKeyboardListener gDummyKeyboardListener;
 
-// Shared controller listener; 
+// Shared controller listener;
 // A controller is any input device that is not a mouse nor a keyboard
 class DummyControllerListener: public Nil::ControllerListener {
 public:

@@ -38,11 +38,11 @@ namespace Nil {
 
   //! \addtogroup Types
   //! @{
-  
+
   typedef uint32_t DeviceID; //!< A device ID type.
   typedef uint32_t POVDirection; //!< A POV (D-pad) direction type.
   typedef unsigned int VirtualKeyCode; //!< A virtual key code type.
-  
+
   typedef float Real; //!< Real number type.
 
 # define NIL_REAL_ZERO 0.0f //!< Real number zero constant.
