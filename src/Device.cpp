@@ -54,8 +54,10 @@ namespace Nil {
         mInstance = new DirectInputController( diDevice, mSystem->mCooperation );
         mSystem->controllerEnabled( this, (Controller*)mInstance );
       }
-      else
-        NIL_EXCEPT( "Unsupported device type for DirectInput; Cannot instantiate device!" );
+      else {
+        // TODO: support unknown device types!
+        // NIL_EXCEPT( "Unsupported device type for DirectInput; Cannot instantiate device!" );
+      }
     }
     else if ( getHandler() == Handler_RawInput )
     {

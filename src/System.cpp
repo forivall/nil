@@ -253,7 +253,7 @@ namespace Nil {
         device->setStatus( Device::Status_Pending );
       }
 
-    auto hr = mDirectInput->EnumDevices( DI8DEVCLASS_GAMECTRL,
+    auto hr = mDirectInput->EnumDevices( DI8DEVCLASS_ALL,
       diDeviceEnumCallback, this, DIEDFL_ATTACHEDONLY );
     if ( FAILED( hr ) )
       NIL_EXCEPT_DINPUT( hr, "Could not enumerate DirectInput devices!" );
