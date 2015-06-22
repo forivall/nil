@@ -8,6 +8,8 @@ namespace Nil {
   mSavedStatus( Status_Pending ), mInstance( nullptr ),
   mDisconnectFlagged( false )
   {
+
+    printf_s( "Init Device %x with type 0x%X\n", mID, mType );
     // Get our type-specific index
     switch ( mType )
     {

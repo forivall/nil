@@ -55,6 +55,11 @@ namespace Nil {
   void EventMonitor::handleInterfaceArrival( const GUID& deviceClass,
   const wideString& devicePath )
   {
+	printf_s("new interface with class" );
+  printf_s("Guid = {%08lX-%04hX-%04hX-%02hhX%02hhX-%02hhX%02hhX%02hhX%02hhX%02hhX%02hhX}",
+  deviceClass.Data1, deviceClass.Data2, deviceClass.Data3,
+  deviceClass.Data4[0], deviceClass.Data4[1], deviceClass.Data4[2], deviceClass.Data4[3],
+  deviceClass.Data4[4], deviceClass.Data4[5], deviceClass.Data4[6], deviceClass.Data4[7]);
     for ( auto listener : mPnPListeners )
       listener->onPnPPlug( deviceClass, devicePath );
   }

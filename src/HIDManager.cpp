@@ -15,8 +15,15 @@ namespace Nil {
 
   void HIDManager::onPnPPlug( const GUID& deviceClass, const wideString& devicePath )
   {
-    if ( deviceClass != g_HIDInterfaceGUID )
+    if ( deviceClass != g_HIDInterfaceGUID ) {
+
+      printf_s("Unknown Device plugged in with class" );
+      printf_s("Guid = {%08lX-%04hX-%04hX-%02hhX%02hhX-%02hhX%02hhX%02hhX%02hhX%02hhX%02hhX}",
+      deviceClass.Data1, deviceClass.Data2, deviceClass.Data3,
+      deviceClass.Data4[0], deviceClass.Data4[1], deviceClass.Data4[2], deviceClass.Data4[3],
+      deviceClass.Data4[4], deviceClass.Data4[5], deviceClass.Data4[6], deviceClass.Data4[7]);
       return;
+    }
 
     for ( auto record : mRecords )
       if ( !_wcsicmp( record->getPath().c_str(), devicePath.c_str() ) )

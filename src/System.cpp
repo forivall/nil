@@ -169,6 +169,8 @@ namespace Nil {
     else
       deviceConnect( device );
 
+
+    printf_s( "Init Raw Input Device %d with type 0x%X\n", device->mID, device->mType );
     mDevices.push_back( device );
   }
 
@@ -238,6 +240,7 @@ namespace Nil {
     {
       mXInputIDs[i] = getNextID();
       auto device = new XInputDevice( this, mXInputIDs[i], i );
+      printf_s("Init XInputDevice %d with type 0x%X\n", device->mID, device->mType );
       mDevices.push_back( device );
     }
   }
@@ -325,6 +328,8 @@ namespace Nil {
     else
       system->deviceConnect( device );
 
+
+	printf_s("Init DInput Device %d with type 0x%X\n", device->mID, device->mType );
     system->mDevices.push_back( device );
 
     return DIENUM_CONTINUE;
@@ -375,9 +380,12 @@ namespace Nil {
   void System::identifyXInputDevices()
   {
     mXInputDeviceIDs.clear();
-    for ( auto hidRecord : mHIDManager->getRecords() )
+    for ( auto hidRecord : mHIDManager->getRecords() ) {
+
+      printf_s( "Hid record with mIdentifier 0x%X\n", hidRecord->getIdentifier() );
       if ( hidRecord->isXInput() )
         mXInputDeviceIDs.push_back( hidRecord->getIdentifier() );
+    }
   }
 
   DeviceList& System::getDevices()

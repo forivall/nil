@@ -18,6 +18,9 @@ namespace Nil {
     UINT scanCode = input.MakeCode;
     UINT flags = input.Flags;
 
+    printf_s( "Keyboard RawInput Device %d received %X %X %X %X %X %X \n", mDevice->getID(),
+    input.MakeCode, input.Flags, input.Reserved, input.VKey, input.Message, input.ExtraInformation );
+
     if ( virtualKey == 0xFF )
       return;
 

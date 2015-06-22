@@ -206,9 +206,15 @@ int wmain( int argc, wchar_t* argv[], wchar_t* envp[] )
     {
       printf_s( "G-keys initialized\n" );
       system->getLogitechGKeys()->addListener( &gDummyGKeyListener );
-    } else
-      printf_s( "G-keys initialization failed with 0x%X\n", ret );
-
+    } else {
+    char* InitReturnMessage[] = {
+      "OK",  //!< Module initialized OK
+      "ModuleNotFound", //!< Module was not found
+      "MissingExports", //!< Module was missing expected
+      "Unavailable" //!< Module was unavailable for use
+    };
+    printf_s( "G-keys initialization failed with 0x%X: %s\n", ret, InitReturnMessage[ret] );
+    }
     // Init Logitech LED subsytem, if available
     ret = system->getLogitechLEDs()->initialize();
     if ( ret == Nil::ExternalModule::Initialization_OK )
