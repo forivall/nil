@@ -232,17 +232,19 @@ int wmain( int argc, wchar_t* argv[], wchar_t* envp[] )
     while ( WaitForSingleObject( stopEvent, timeout ) == WAIT_TIMEOUT )
     {
       // Cycle some LED colors for fun
-      if ( system->getLogitechLEDs()->isInitialized() )
+      /*if ( system->getLogitechLEDs()->isInitialized() )
       {
         Nil::Color clr;
-        clr.r = (float)costable[x] / 99.0f;
-        clr.g = (float)costable[y] / 99.0f;
+        clr.r = 0.0f;
+        clr.g = 0.0f;
+        // clr.r = (float)costable[x] / 99.0f;
+        // clr.g = (float)costable[y] / 99.0f;
         clr.b = (float)costable[z] / 99.0f;
         system->getLogitechLEDs()->setLighting( clr );
         if ( x++ > 256 ) { x = 0; }
         if ( y++ > 256 ) { y = 0; }
         if ( z++ > 256 ) { z = 0; }
-      }
+      }*/
       // Update the system
       // This will trigger all the callbacks
       system->update();
