@@ -108,6 +108,10 @@ namespace Nil {
       for ( auto listener : mRawListeners )
         listener->onRawKeyboardInput( raw->header.hDevice, raw->data.keyboard, sinked );
     }
+    else {
+      // if debug
+      printf_s( "Unknown Raw input type with dwType 0x%X\n", raw->header.dwType );
+    }
   }
 
   void EventMonitor::handleRawRemoval( HANDLE handle )

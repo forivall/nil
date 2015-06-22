@@ -295,6 +295,7 @@ namespace Nil {
   LPVOID referer )
   {
     auto system = reinterpret_cast<System*>( referer );
+    printf_s("diDeviceEnumCallback devtype 0x%X %s %s \n", instance->dwDevType, instance->tszInstanceName, instance->tszProductName );
 
     for ( auto identifier : system->mXInputDeviceIDs )
       if ( instance->guidProduct.Data1 == identifier )
